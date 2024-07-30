@@ -1,38 +1,211 @@
+/* Reset básico para margens e paddings */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-ul { list-style: none; padding-left: 5px; }
-a { color:blue; text-decoration: none;}
+
+ul { 
+    list-style: none; 
+    padding-left: 5px; 
+}
+
+a { 
+    color: blue; 
+    text-decoration: none; 
+}
+
+
+/* Estilos do Header */
+.header {
+    background-color: #f8f9fa; /* cor de fundo opcional */
+    padding: 20px;
+    border-bottom: 1px solid #ddd; /* linha abaixo do header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-right: auto;
+    max-width: 100px;
+}
+
+.logo img {
+    max-width: 100%; /* Limita a largura da imagem ao máximo permitido pelo container */
+    max-height: 100%; /* Limita a altura da imagem ao máximo permitido pelo container */
+    width: auto; /* Mantém a proporção da largura */
+    height: auto; /* Mantém a proporção da altura */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    position: relative;
+}
+
+.header-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%);
+}
+
+.main-nav {
+    margin-left: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin-right: 20px;
+}
+
+.main-nav ul li:last-child {
+    margin-right: 0;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: #007bff; /* cor ao passar o mouse */
+}
+
+/* Barra Horizontal */
 .bar {
     background-color: #f9f9fb;
-    padding:15px;
+    padding: 15px;
     border-top: solid 1px #cdcdcd;
     border-bottom: solid 1px #cdcdcd;
 }
+
+/* Layout Principal */
 .content {
     max-width: 1440px;
     margin: auto;
-    grid-gap: 3rem;
     display: grid;
     gap: 3rem;
-    grid-template-areas: "sidebar main anchors";
-    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
+    grid-template-areas: 
+        "sidebar main anchors";
+    grid-template-columns: minmax(0, 15rem) minmax(0, 2.5fr) minmax(0, 15rem);
     padding-left: 1rem;
     padding-right: 1rem;
 }
-.footer {
-    min-height: 100px;
-    border-top: solid 1px #cdcdcd;
+
+.container-side{
+    max-width: 80%;
+    background-color: rgba(0, 255, 255, 0.562);
+}
+
+.sidebar {
+    border-right: solid 1px #cdcdcd;
+    border-left: solid 1px #cdcdcd;
+    grid-area: sidebar;
+    padding: 1rem; /* Adiciona padding interno */
+    margin-right: 0; /* Garante que não haja margens à direita */
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo de largura */
+    width: 100%; /* Garante que a sidebar ocupe 100% da área disponível */
+}
+
+.main {
+    grid-area: main;
+}
+
+/* Estilo para o contêiner do vídeo */
+.video-container {
+    position: relative;
+    width: 100%; /* Ocupa a largura total do contêiner pai */
+    padding-bottom: 56.25%; /* Proporção 16:9 (altura/ largura) */
+    height: 0; /* Altura é zero para a proporção ser mantida pelo padding */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse o contêiner */
+    margin: 0 auto; /* Centraliza o contêiner se o elemento pai tiver uma largura fixa */
+    max-width: 100%; /* Garante que o contêiner não exceda a largura do pai */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Faz com que o iframe ocupe 100% da largura do contêiner */
+    height: 100%; /* Faz com que o iframe ocupe 100% da altura do contêiner */
+}
+
+video-container figcaption {
+    text-align: center; /* Alinha o texto da legenda ao centro */
+    margin-top: 10px; /* Espaço acima da legenda */
+    font-size: 14px; /* Tamanho da fonte da legenda */
+    color: #666; /* Cor do texto da legenda */
+}
+
+.elenco-personagens {
+    margin-top: 20px; /* Espaço acima da seção */
+}
+
+.elenco-personagens h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+.personagem {
+    display: flex; /* Alinha a imagem e a descrição em linha */
+    align-items: center; /* Alinha verticalmente ao centro */
+    margin-bottom: 15px; /* Espaço abaixo de cada personagem */
+}
+
+.imagem-container {
+    width: 300px; /* Largura fixa do contêiner da imagem */
+    height: 100px; /* Altura fixa do contêiner da imagem */
+    overflow: hidden; /* Oculta parte da imagem que ultrapassa o contêiner */
+    /* border-radius: 50%; Faz a borda do contêiner ficar redonda (opcional) */
+    margin-right: 15px; /* Espaço à direita da imagem */
+}
+
+.imagem-personagem {
+    width: 100%; /* Faz a imagem ocupar a largura total do contêiner */
+    height: 100%; /* Faz a imagem ocupar a altura total do contêiner */
+    object-fit: cover; /* Mantém a proporção da imagem e cobre a área do contêiner */
+}
+
+personagem figcaption {
+    font-size: 16px; /* Tamanho da fonte da descrição */
+    color: #333; /* Cor do texto da descrição */
+    margin: 0; /* Remove margens padrão */
+    text-justify: auto; /* Justifica o texto */
+}
+
+figcaption p {
+    margin: 0; /* Remove margens padrão dos parágrafos dentro do figcaption */
+    text-align: left; /* Alinha o texto à esquerda */
 }
 .anchors {
     border-left: solid 1px #cdcdcd;
     padding-left: 15px;
+    grid-area: anchors;
 }
-.sidebar {
-    border-right: solid 1px #cdcdcd;
+
+/* Rodapé */
+.footer {
+    min-height: 100px;
+    border-top: solid 1px #cdcdcd;
+    padding: 20px;
 }
+
+/* Figuras */
 figure {
     text-align: center;
 }
