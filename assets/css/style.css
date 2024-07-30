@@ -22,11 +22,11 @@ a:hover {
     color: #0056b3; /* Cor do link ao passar o mouse */
 }
 
+
 /* Estilos do Header */
 .header {
     background-color: #fff; /* Cor de fundo branca para o cabeçalho */
     padding: 20px 40px; /* Padding interno do cabeçalho */
-    border-bottom: 1px solid #ddd; /* Linha inferior para divisão */
     display: flex; /* Uso de flexbox para alinhamento */
     align-items: center; /* Alinha itens ao centro verticalmente */
     justify-content: space-between; /* Espaça itens igualmente */
